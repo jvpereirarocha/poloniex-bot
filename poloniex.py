@@ -42,7 +42,3 @@ class Poloniex:
                 if key == name:
                     return value
         return None
-
-
-p = Poloniex('BTC_BNT', 20)
-print(p.valids_currencies())

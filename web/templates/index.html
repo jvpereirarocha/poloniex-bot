@@ -6,6 +6,41 @@
 
 {% block content %}
 
-    <div class="content"></div>
+    <div class="content">
+        {% if candles %}
+            <table>
+                <thead>
+                    <tr>
+                        <th> Id </th>
+                        <th> Currency </th>
+                        <th> Period </th>
+                        <th> Date </th>
+                        <th> Open </th>
+                        <th> Close </th>
+                        <th> High </th>
+                        <th> Low </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candle in candles %}
+                        <tr>
+                            <th> {{ candle.id }} </th>
+                            <td> {{ candle.currency }} </td>
+                            <td> {{ candle.period }} </td>
+                            <td> {{ candle.date }} </td>
+                            <td> {{ candle.open }} </td>
+                            <td> {{ candle.close }} </td>
+                            <td> {{ candle.high }} </td>
+                            <td> {{ candle.low }} </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="message">
+                <p class="text"> Nothing to show </p>
+            </div>
+        {% endif %}
+    </div>
 
 {% endblock %}

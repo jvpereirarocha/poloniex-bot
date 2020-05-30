@@ -8,24 +8,12 @@
     </head>
     <body>
         <header class="header">
-            <nav class="navigation">
-                <ul class="menu">
-                    <li class="menu-item">
-                        <a class="menu-link"> Home </a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="menu-link"> Candles </a>
-                    </li>
-                    <li class="menu-item">
-                        <a class="menu-link"> Informações </a>
-                    </li>
-                </ul>
-            </nav>
+            <h4 class="title"> Candles </h4>
         </header>
         <div class="container">
             {% block content %} {% endblock %}
         </div>
-        <footer>
+        <footer class="footer">
             Copyright&copy; 2020 - Desenvolvido por João Victor Rocha
         </footer>
         <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"> </script>

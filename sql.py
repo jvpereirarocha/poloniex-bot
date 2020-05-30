@@ -1,4 +1,5 @@
 from database import candles, engine
+from sqlalchemy.sql import select
 
 
 class Database:
@@ -8,7 +9,7 @@ class Database:
     def _connect(self, object):
         try:
             connection = engine.connect()
-            connection.execute(object)
+            return connection.execute(object)
         except Exception:
             raise Exception('Could not possible to connect')
 
@@ -27,3 +28,8 @@ class Database:
 
         except Exception:
             raise Exception('Could not possible insert in the database')
+
+    def get(self):
+        all_candles = select([candles])
+        result = self._connect(all_candles).fetchall()
+        return result
