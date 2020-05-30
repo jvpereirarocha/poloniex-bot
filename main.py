@@ -3,7 +3,6 @@ import time
 from datetime import datetime
 from poloniex import Poloniex
 from sql import Database
-from web import create_app
 
 
 def main():
