@@ -4,7 +4,7 @@ import time
 
 def datetime_to_string(date):
     try:
-        converted_date = date.strftime('%d/%m/%Y %H:%M:%S')
+        converted_date = date.strftime('%d/%m/%Y %H:%M:%S.%f')
         return converted_date
     except TypeError:
         raise TypeError('Invalid datetime format')
@@ -12,7 +12,7 @@ def datetime_to_string(date):
 
 def string_to_datetime(text):
     try:
-        format = '%Y-%m-%d %H:%M:%S'
+        format = '%d/%m/%Y %H:%M:%S.%f'
         text_converted_to_datetime = datetime.datetime.strptime(text, format)
         return text_converted_to_datetime
     except TypeError:
@@ -21,9 +21,7 @@ def string_to_datetime(text):
 
 def datetime_to_timestamp(date):
     try:
-        converted = date.timetuple()
-        aux = str(time.mktime(converted))
-        timestamp = aux.split('.')[0]
+        timestamp = date.timestamp()
         return timestamp
     except TypeError:
         raise TypeError('Invalid datetime format')

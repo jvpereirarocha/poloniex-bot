@@ -21,8 +21,8 @@ class Api:
         try:
             data = self._connection.json()
             return data.keys()
-        except ConnectionError:
-            raise ConnectionError('Could not possible to connect')
+        except TypeError:
+            raise TypeError('Invalid type to return data')
 
     def __repr__(self):
         if self.get_status_code() == 200:
