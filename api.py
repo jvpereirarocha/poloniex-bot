@@ -17,6 +17,13 @@ class Api:
             return self._connection.json()
         return None
 
+    def currencies(self):
+        try:
+            data = self._connection.json()
+            return data.keys()
+        except ConnectionError:
+            raise ConnectionError('Could not possible to connect')
+
     def __repr__(self):
         if self.get_status_code() == 200:
             return "<API: returnTicker>"

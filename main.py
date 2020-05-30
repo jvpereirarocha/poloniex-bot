@@ -1,32 +1,38 @@
 import argparse
 import time
 from datetime import datetime
-from currencies import currencies
 from poloniex import Poloniex
+from sql import Database
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-c', '--currency', required=True, choices=currencies)
+    parser.add_argument('-c', '--currency', required=True)
     parser.add_argument('-p', '--period', type=int, required=True,
-                        choices=[20, 300, 600])
+                        choices=[60, 300, 600])
 
     args = parser.parse_args()
     poloniex = Poloniex(args.currency, args.period)
 
     count = 0
-    initial_date_time = ''
-    final_date_time = ''
-    while(count <= args.period):
-        if count == 0:
-            initial_date_time = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
-        elif count == args.period:
-            break
-        count += 1
-        print('Remaining time: ', args.period-count)
-        time.sleep(1)
-    print("initial: ", initial_date_time)
-    print("final: ", final_date_time)
+
+    while(True):
+        date = datetime.now()
+        open = poloniex.get_field('last')
+        close = poloniex.get_field('last')
+        high = poloniex.get_field('high24hr')
+        low = poloniex.get_field('low24hr')
+
+        db = Database()
+        db.create(currency=args.currency, period=args.period,
+                  date=date, open=open, close=close, high=high,
+                  low=low)
+        count = count + 1
+        print('Salvo com sucesso! Data/Hora: {}'
+              .format(date.strftime('%d/%m/%Y %H:%M:%S')))
+        print('Nº de candles salvos: ', count)
+
+        time.sleep(args.period)
 
 
 if __name__ == '__main__':
