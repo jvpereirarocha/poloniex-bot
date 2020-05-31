@@ -27,7 +27,9 @@
                             <th class="table-line-head"> {{ candle.id }} </th>
                             <td class="table-description"> {{ candle.currency }} </td>
                             <td class="table-description"> {{ candle.period }} </td>
-                            <td class="table-description"> {{ candle.date }} </td>
+                            <td class="table-description">
+                                {{ candle.date.strftime('%d /%m / %Y %H:%M:%S') }}
+                            </td>
                             <td class="table-description"> {{ candle.open }} </td>
                             <td class="table-description"> {{ candle.close }} </td>
                             <td class="table-description"> {{ candle.high }} </td>
