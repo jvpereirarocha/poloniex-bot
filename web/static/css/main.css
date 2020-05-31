@@ -5,6 +5,7 @@
     padding: 0;
     font-size: 14pt;
     font-family: 'Inika', serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -19,6 +20,7 @@ body {
 .title {
     font-weight: bold;
     font-size: 18pt;
+    color: #fff;
 }
 
 .container {
@@ -29,6 +31,14 @@ body {
     background-color: #AAAAAA;
     width: 100%;
     padding: 5px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
 }
 
 .header {
@@ -50,4 +60,47 @@ body {
     width: 100%;
     height: 50px;
     background-color: #465141;
+    color: #fff;
+}
+
+
+/* Table Components */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+.table-body {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.table-row {
+    border-bottom: 1px solid #465141;
+}
+
+.table-row-head {
+    height: 40px;
+}
+
+.table-line-head, .table-description {
+    width: 12.5%;
+}
+
+.table-line-head {
+    padding-right: 1%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.table-description {
+    padding: 10px 1%;
+    font-size: 16px;
+    color: #000;
+    line-height: 1.5;
+    text-align: center;
 }

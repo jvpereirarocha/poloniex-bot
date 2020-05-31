@@ -8,30 +8,30 @@
 
     <div class="content">
         {% if candles %}
-            <table>
-                <thead>
-                    <tr>
-                        <th> Id </th>
-                        <th> Currency </th>
-                        <th> Period </th>
-                        <th> Date </th>
-                        <th> Open </th>
-                        <th> Close </th>
-                        <th> High </th>
-                        <th> Low </th>
+            <table class="table">
+                <thead class="table-head">
+                    <tr class="table-row table-row-head">
+                        <th class="table-line-head"> Id </th>
+                        <th class="table-line-head"> Currency </th>
+                        <th class="table-line-head"> Period </th>
+                        <th class="table-line-head"> Date </th>
+                        <th class="table-line-head"> Open </th>
+                        <th class="table-line-head"> Close </th>
+                        <th class="table-line-head"> High </th>
+                        <th class="table-line-head"> Low </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-body">
                     {% for candle in candles %}
-                        <tr>
-                            <th> {{ candle.id }} </th>
-                            <td> {{ candle.currency }} </td>
-                            <td> {{ candle.period }} </td>
-                            <td> {{ candle.date }} </td>
-                            <td> {{ candle.open }} </td>
-                            <td> {{ candle.close }} </td>
-                            <td> {{ candle.high }} </td>
-                            <td> {{ candle.low }} </td>
+                        <tr class="table-row">
+                            <th class="table-line-head"> {{ candle.id }} </th>
+                            <td class="table-description"> {{ candle.currency }} </td>
+                            <td class="table-description"> {{ candle.period }} </td>
+                            <td class="table-description"> {{ candle.date }} </td>
+                            <td class="table-description"> {{ candle.open }} </td>
+                            <td class="table-description"> {{ candle.close }} </td>
+                            <td class="table-description"> {{ candle.high }} </td>
+                            <td class="table-description"> {{ candle.low }} </td>
                         </tr>
                     {% endfor %}
                 </tbody>
