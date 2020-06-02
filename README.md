@@ -22,7 +22,7 @@ As informações coletadas pela aplicação são: Id, Name, last, High24hr e Low
 
 **High24hr ->** Traz o valor (price) mais alto coletado daquela criptomoeda
 
-**Low24hr* ->** Traz o valor (price) mais baixo coletado daquela criptomoeda
+**Low24hr ->** Traz o valor (price) mais baixo coletado daquela criptomoeda
 
 -----
 
