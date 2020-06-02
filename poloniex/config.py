@@ -13,6 +13,6 @@ def get_url_api():
 
 
 def get_db_config():
-    connection = pymysql.connect(host='db', user='jv',
+    connection = pymysql.connect(host='thirsty_nash', user='jv',
                                  password='sci@2017', db='poloniex')
     return connection
