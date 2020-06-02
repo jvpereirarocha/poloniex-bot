@@ -1,14 +1,16 @@
-FROM python:3.7
+FROM python:3.7-alpine
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/poloniex
+COPY . /usr/src/app/poloniex
 
-COPY . /usr/src/app
+RUN apk add gcc
+RUN apk add --no-cache libressl-dev musl-dev libffi-dev
+RUN pip install --no-cache-dir cryptography
 
 RUN pip install --upgrade pip
+RUN pip install -r poloniex/requirements.txt
 
-RUN pip install -r requirements.txt
-
-ENTRYPOINT ["python", "main.py", "-c", "BTC_BTS", "-p", "60"]
+ENTRYPOINT ["python", "poloniex/main.py"]
