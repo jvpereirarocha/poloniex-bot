@@ -18,9 +18,9 @@ class Database:
             new_candle = candles.insert().values(
                 currency=kwargs.get('currency'),
                 period=kwargs.get('period'),
-                date=kwargs.get('date'),
-                open=kwargs.get('open'),
-                close=kwargs.get('close'),
+                date_initial=kwargs.get('date_initial'),
+                open_candle=kwargs.get('open_candle'),
+                close_candle=kwargs.get('close_candle'),
                 high=kwargs.get('high'),
                 low=kwargs.get('low'),
             )

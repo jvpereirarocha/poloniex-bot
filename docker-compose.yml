@@ -1,26 +1,25 @@
 version: '3'
 services:
+
     app:
-        container_name: app_poloniex
-        restart: always
+        container_name: app
         build:
             context: .
             dockerfile: Dockerfile-app
+        links:
+            - db
         depends_on:
             - db
     db:
-        container_name: db_poloniex
-        restart: always
-        build:
-            context: .
-            dockerfile: Dockerfile-db
-        ports:
-            - "33060:3306"
-        volumes:
-            - db-init:/var/lib/mysql
+        container_name: db
+        image: mysql:5.7
+        environment:
+            MYSQL_USER: jv
+            MYSQL_DB: api_poloniex
+            MYSQL_ROOT_PASSWORD: sci@2017
+            MYSQL_PASSWORD: sci@2017
     web:
-        container_name: web_poloniex
-        restart: always
+        container_name: web
         build:
             context: .
             dockerfile: Dockerfile-web
@@ -29,4 +28,4 @@ services:
         depends_on:
             - app
 volumes:
-    db-init:
+    db_init:

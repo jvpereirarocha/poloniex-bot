@@ -2,8 +2,13 @@ from sqlalchemy import (
     create_engine, Table, Column, MetaData, Integer, String, DateTime
 )
 
-engine = create_engine("mysql+pymysql://jv:sci@2017@db/api_poloniex",
-                       echo=False)
+host = 'db'
+user = 'jv'
+password = 'sci@2017'
+db = 'api_poloniex'
+
+engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{db}",
+                       echo=True)
 meta = MetaData()
 
 candles = Table(
