@@ -14,10 +14,10 @@ services:
         container_name: db
         image: mysql:5.7
         environment:
-            MYSQL_USER: jv
-            MYSQL_DB: api_poloniex
-            MYSQL_ROOT_PASSWORD: sci@2017
-            MYSQL_PASSWORD: sci@2017
+            - MYSQL_USER=jv
+            - MYSQL_DB=api_poloniex
+            - MYSQL_ROOT_PASSWORD=sci@2017
+            - MYSQL_PASSWORD=sci@2017
     web:
         container_name: web
         build:
