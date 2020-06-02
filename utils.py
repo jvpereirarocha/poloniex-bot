@@ -1,5 +1,4 @@
 import datetime
-import time
 
 
 def datetime_to_string(date):

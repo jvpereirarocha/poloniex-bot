@@ -25,8 +25,8 @@ def main():
 
         db = Database()
         db.create(currency=args.currency, period=args.period,
-                  date=date, open=open, close=close, high=high,
-                  low=low)
+                  date_initial=date, open_candle=open, close_candle=close,
+                  high=high, low=low)
         count = count + 1
         print('Salvo com sucesso! Data/Hora: {}'
               .format(date.strftime('%d/%m/%Y %H:%M:%S')))
