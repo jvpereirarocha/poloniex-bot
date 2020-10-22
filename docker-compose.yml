@@ -16,8 +16,8 @@ services:
         environment:
             - MYSQL_USER=jv
             - MYSQL_DB=api_poloniex
-            - MYSQL_ROOT_PASSWORD=sci@2017
-            - MYSQL_PASSWORD=sci@2017
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_PASSWORD=root
     web:
         container_name: web
         build:
